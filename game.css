@@ -9,6 +9,7 @@ body {
   display: grid;
   width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
   /*
   12 1fractions for å kunne ha eit litt whitespace mellom
   innholdet på nettsiden og enden av nettlesaren
@@ -18,8 +19,8 @@ body {
   grid-template-areas:
   "header header header header header header header header header header header header"
   "nav nav nav nav nav nav nav nav nav nav nav nav"
-  ". options options options options options options options options options options ."
-  ""
+  ". . . . . options options . . . . ."
+  ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
   "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 
@@ -29,6 +30,15 @@ header {
 }
 nav {
   grid-area: nav;
+}
+#main {
+  grid-area: main;
+}
+#imgp1 {
+  grid-area: imgp1;
+}
+#imgp2 {
+  grid-area: imgp2;
 }
 #options {
   grid-area: options;
