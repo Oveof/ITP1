@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  font-family: "Roboto", sans-serif;
+}
+
+#wrapper {
+  display: grid;
+  width: 100vw;
+  min-height: 100vh;
+  /*
+  12 1fractions for å kunne ha eit litt whitespace mellom
+  innholdet på nettsiden og enden av nettlesaren
+  */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-areas:
+  "header header header header header header header header header header header header"
+  "nav nav nav nav nav nav nav nav nav nav nav nav"
+  ". options options options options options options options options options options ."
+  ""
+  "footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+}
+nav {
+  grid-area: nav;
+}
+#options {
+  grid-area: options;
+}
+#countdown {
+  grid-area: countdown;
+}
+#score {
+  grid-area: score;
+}
+footer {
+  grid-area: footer;
+}
+nav {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+li a {
+  text-align: center;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.95);
+  display: inline;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  font-weight: 500;
+}
+h3 {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.85)
+}
+p {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.8)
+}

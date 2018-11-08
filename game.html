@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SSP</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="game.css">
 </head>
 
 <body>
@@ -20,16 +20,19 @@
         <li><a href="game.html">Spel</a></li>
       </ul>
     </nav>
-    <div id="main">
+    <div id="options">
       <form>
         <select id="gamemode">
           <option selected disabled>Velg kor mange spelare</option>
           <option value="p1">P1 VS CPU</option>
           <option value="p2">P1 VS P2</option>
         </select>
-        <button type="button" id="start"></button>
+        <button type="button" id="start" disabled>Start</button>
       </form>
     </div>
+    <div id="countdown"></div>
+    <div id="score"></div>
+    <canvas id="canvas" width="500" height="500"></canvas>
     <footer>Laget av Ove Oftedal</footer>
   </div>
 
@@ -38,22 +41,42 @@
 </html>
 
 <script type="text/javascript">
+  var canvas = document.getElementById()
   var gamemode = document.getElementById('gamemode')
   var btnStart = document.getElementById('start')
-  window.addEventListener("keydown", onKeyDown, false);
-  window.addEventListener("keyup", onKeyUp, false);
-  btnStart.onclick = function() {
-    window.setTimeout(game(), 240)
+  var countdown = document.getElementById('countdown')
+  gamemode.onchange = function() {
+    if (gamemode.value == "p1" || gamemode.value == "p2") {
+      btnStart.disabled = false;
+    } else {
+      btnStart.disabled = true;
+    }
   }
+
+  //  window.addEventListener("keydown", onKeyDown, false);
+  //  window.addEventListener("keyup", onKeyUp, false);
+  function countDown() {
+    countdown.innerHTML = i
+    i--
+
+  }
+  btnStart.onclick = function() {
+    window.setTimeout(function() {game()}, 4000);
+    i = 3
+    window.setTimeout(countDown, 1000);
+    window.setTimeout(countDown, 2000);
+    window.setTimeout(countDown, 3000);
+  }
+
+
   function game() {
+    countdown.innerHTML = "GO"
     if (gamemode.value == "p1") {
       var p2 = "cpu"
-    }
-    else {
-      var p2 == "p2"
+    } else {
+      var p2 = "p2"
     }
 
 
   }
-
 </script>
