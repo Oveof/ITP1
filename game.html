@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SSP</title>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
+  <div id="wrapper">
+    <header>
+      <h1>Jæren Stein-Saks-Papir klubb</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Heim</a></li>
+        <li><a href="game.html">Spel</a></li>
+      </ul>
+    </nav>
+    <div id="main">
+      <form>
+        <select id="gamemode">
+          <option selected disabled>Velg kor mange spelare</option>
+          <option value="p1">P1 VS CPU</option>
+          <option value="p2">P1 VS P2</option>
+        </select>
+        <button type="button" id="start"></button>
+      </form>
+    </div>
+    <footer>Laget av Ove Oftedal</footer>
+  </div>
 
 </body>
+
 </html>
 
 <script type="text/javascript">
-  //p1
+  var gamemode = document.getElementById('gamemode')
+  var btnStart = document.getElementById('start')
   window.addEventListener("keydown", onKeyDown, false);
   window.addEventListener("keyup", onKeyUp, false);
-  //p2
-  window.addEventListener()
-  window.addEventListener()
-  var p1, p2;
-  function check(p1, p2) {
-    return p1 ? window[p2].weak : "p1"
-           p2 ? window[p1].weak : "p2"
+  btnStart.onclick = function() {
+    window.setTimeout(game(), 240)
   }
-  function cpu() {
-    var rand = Math.floor(Math.random() * 2)
-    return rand ? 0 : "stone"
-           rand ? 1 : "scissor"
-           rand ? 2 : "paper"
+  function game() {
+    if (gamemode.value == "p1") {
+      var p2 = "cpu"
+    }
+    else {
+      var p2 == "p2"
+    }
+
+
   }
+
 </script>
