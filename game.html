@@ -68,8 +68,20 @@
 
   function countDown() {
     countdown.innerHTML = i
-    i--
+    switch (i) {
+      case 3:
+        countdownImage.src = "assets/rock.svg";
+        break;
+      case 2:
+        countdownImage.src = "assets/scissors.svg";
+        break;
+      case 1:
+        countdownImage.src = "assets/paper.svg";
+        break;
+      default:
 
+    }
+    i--
   }
   btnStart.onclick = function() {
     selected1 = "";
@@ -79,17 +91,16 @@
     i = 3
 
     window.setTimeout(countDown, 1000);
-    countdownImage.src = "assets/rock.svg";
+
     window.setTimeout(countDown, 2000);
-    countdownImage.src = "";
+
     window.setTimeout(countDown, 3000);
-    countdownImage.src = "";
+
   }
 
 
   function game() {
     countdown.innerHTML = "GO";
-    countdownImage.src = "";
     if (gamemode.value == "p1") {
       var p2 = "cpu"
       selected2 = cpu();

@@ -34,7 +34,7 @@ function onKeyUp(event) {
     case 65: //a
       keyA = false;
       selected1 = "stone";
-      
+
       break;
     case 83: //s
       keyS = false;
