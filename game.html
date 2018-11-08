@@ -51,12 +51,14 @@
 <script src="vsCPU.js" charset="utf-8"></script>
 <script src="effective.js" charset="utf-8"></script>
 <script type="text/javascript">
-  var gamemode = document.getElementById('gamemode')
-  var btnStart = document.getElementById('start')
-  var countdown = document.getElementById('countdownNumber')
-  var imgp1 = document.getElementById('img-p1')
-  var imgp2 = document.getElementById('img-p2')
-  var countdownImage = document.getElementById('countdownImage')
+  var gamemode = document.getElementById('gamemode');
+  var btnStart = document.getElementById('start');
+  var countdown = document.getElementById('countdownNumber');
+  var imgp1 = document.getElementById('img-p1');
+  var imgp2 = document.getElementById('img-p2');
+  var score1 = document.getElementById('score1');
+  var score2 = document.getElementById('score2');
+  var countdownImage = document.getElementById('countdownImage');
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
@@ -115,7 +117,7 @@
     imgp2.src = `assets/${selected2}.svg`
 
     if (window[selected1].effective == selected2) {
-      
+      var sc
       alert("P1 WINS! with " + selected1 + " : " + selected2)
     }
     else if (window[selected2].effective == selected1) {

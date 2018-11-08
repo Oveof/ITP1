@@ -19,8 +19,8 @@ body {
   grid-template-areas:
   "header header header header header header header header header header header header"
   "nav nav nav nav nav nav nav nav nav nav nav nav"
-  "score1 . . . . options options . . . . score2"
-  ". . . . . countdown countdown . . . . ."
+  ". . . . . options options . . . . ."
+  ". . . . score1 countdown countdown score2 . . . ."
   ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
   "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
