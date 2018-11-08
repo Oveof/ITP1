@@ -1,15 +1,15 @@
-var stone = {
+var rock = {
   "name": "stein",
   "effective": "scissor",
   "weak": "paper"
 }
 var paper = {
   "name": "papir",
-  "effective": "stone",
+  "effective": "rock",
   "weak": "scissor"
 }
 var scissors = {
   "name": "Saks",
   "effective": "paper",
-  "weak": "stone"
+  "weak": "rock"
 }

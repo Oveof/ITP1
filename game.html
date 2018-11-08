@@ -31,10 +31,10 @@
       </form>
     </div>
     <div id="imgp1">
-      <img src="" alt="">
+      <img src="" alt="" id="img-p1">
     </div>
     <div id="imgp2">
-      <img src="" alt="">
+      <img src="" alt="" id="img-p2">
     </div>
     <div id="countdown">
       <p id="countdownNumber"></p>
@@ -54,8 +54,8 @@
   var gamemode = document.getElementById('gamemode')
   var btnStart = document.getElementById('start')
   var countdown = document.getElementById('countdownNumber')
-  var imgp1 = document.getElementById('imgp1')
-  var imgp2 = document.getElementById('imgp2')
+  var imgp1 = document.getElementById('img-p1')
+  var imgp2 = document.getElementById('img-p2')
   var countdownImage = document.getElementById('countdownImage')
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
@@ -69,14 +69,15 @@
   function countDown() {
     countdown.innerHTML = i
     switch (i) {
-      case 3:
+      case 2:
         countdownImage.src = "assets/rock.svg";
         break;
-      case 2:
+      case 1:
         countdownImage.src = "assets/scissors.svg";
         break;
-      case 1:
+      case 0:
         countdownImage.src = "assets/paper.svg";
+        countdownNumber.innerHTML = "GO";
         break;
       default:
 
@@ -87,8 +88,10 @@
     selected1 = "";
 
     document.getElementById('')
-    window.setTimeout(function() {game()}, 4000);
-    i = 3
+    window.setTimeout(function() {
+      game()
+    }, 3000);
+    i = 2
 
     window.setTimeout(countDown, 1000);
 
@@ -100,7 +103,6 @@
 
 
   function game() {
-    countdown.innerHTML = "GO";
     if (gamemode.value == "p1") {
       var p2 = "cpu"
       selected2 = cpu();
@@ -108,7 +110,12 @@
       var p2 = "p2"
       selected2 = "";
     }
+
+    imgp1.src = `assets/${selected1}.svg`
+    imgp2.src = `assets/${selected2}.svg`
+
     if (window[selected1].effective == selected2) {
+      
       alert("P1 WINS! with " + selected1 + " : " + selected2)
     }
     else if (window[selected2].effective == selected1) {
@@ -119,5 +126,4 @@
     }
 
   }
-
 </script>

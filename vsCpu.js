@@ -1,7 +1,7 @@
 //CPU
 function cpu() {
   var rand = Math.floor(Math.random() * (4 - 1)) + 1;
-  return rand == 1 ? "stone"
+  return rand == 1 ? "rock"
        : rand == 2 ? "scissors"
        : "paper"
 }
@@ -33,7 +33,7 @@ function onKeyUp(event) {
   switch (keyCode) {
     case 65: //a
       keyA = false;
-      selected1 = "stone";
+      selected1 = "rock";
 
       break;
     case 83: //s
