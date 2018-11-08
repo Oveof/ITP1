@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  display: grid;
+  width: 100vw;
+  /*
+  12 1fractions for å kunne ha eit litt whitespace mellom
+  innholdet på nettsiden og enden av nettlesaren
+  */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+  "header header header header header header header header header header header header"
+  "nav nav nav nav nav nav nav nav nav nav nav nav"
+  ". main main main main main main main main main main ."
+  "footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+#main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}

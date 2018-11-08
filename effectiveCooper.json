@@ -1,0 +1,15 @@
+"stone": {
+  "name": "stein",
+  "effective": "scissor",
+  "weak": "paper"
+}
+"paper": {
+  "name": "papir",
+  "effective": "stone",
+  "weak": "scissor"
+}
+"scissor": {
+  "name": "Saks",
+  "effective": "paper",
+  "weak": "stone"
+}
