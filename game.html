@@ -20,12 +20,6 @@
         <li><a href="game.html">Spel</a></li>
       </ul>
     </nav>
-    <div id="imgp1">
-
-    </div>
-    <div id="imgp2">
-
-    </div>
     <div id="options">
       <form>
         <select id="gamemode">
@@ -36,19 +30,34 @@
         <button type="button" id="start" disabled>Start</button>
       </form>
     </div>
-    <div id="countdown"></div>
-    <div id="score"></div>
+    <div id="imgp1">
+      <img src="" alt="">
+    </div>
+    <div id="imgp2">
+      <img src="" alt="">
+    </div>
+    <div id="countdown">
+      <p id="countdownNumber"></p>
+      <img src="" alt="" id="countdownImage">
+    </div>
+    <div id="score1"></div>
+    <div id="score2"></div>
     <footer>Laget av Ove Oftedal</footer>
   </div>
 
 </body>
 
 </html>
-
+<script src="vsCPU.js" charset="utf-8"></script>
+<script src="effective.js" charset="utf-8"></script>
 <script type="text/javascript">
   var gamemode = document.getElementById('gamemode')
   var btnStart = document.getElementById('start')
-  var countdown = document.getElementById('countdown')
+  var countdown = document.getElementById('countdownNumber')
+  var imgp1 = document.getElementById('imgp1')
+  var imgp2 = document.getElementById('imgp2')
+  var countdownImage = document.getElementById('countdownImage')
+  //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
       btnStart.disabled = false;
@@ -57,30 +66,47 @@
     }
   }
 
-  //  window.addEventListener("keydown", onKeyDown, false);
-  //  window.addEventListener("keyup", onKeyUp, false);
   function countDown() {
     countdown.innerHTML = i
     i--
 
   }
   btnStart.onclick = function() {
+    selected1 = "";
+
+    document.getElementById('')
     window.setTimeout(function() {game()}, 4000);
     i = 3
+
     window.setTimeout(countDown, 1000);
+    countdownImage.src = "assets/rock.svg";
     window.setTimeout(countDown, 2000);
+    countdownImage.src = "";
     window.setTimeout(countDown, 3000);
+    countdownImage.src = "";
   }
 
 
   function game() {
-    countdown.innerHTML = "GO"
+    countdown.innerHTML = "GO";
+    countdownImage.src = "";
     if (gamemode.value == "p1") {
       var p2 = "cpu"
+      selected2 = cpu();
     } else {
       var p2 = "p2"
+      selected2 = "";
+    }
+    if (window[selected1].effective == selected2) {
+      alert("P1 WINS! with " + selected1 + " : " + selected2)
+    }
+    else if (window[selected2].effective == selected1) {
+      alert("P2 WINS! with " + selected2 + " : " + selected1)
+    }
+    else {
+      alert("It's a tie!")
     }
 
-
   }
+
 </script>

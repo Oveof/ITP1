@@ -15,11 +15,12 @@ body {
   innholdet på nettsiden og enden av nettlesaren
   */
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-rows: auto auto auto auto 1fr auto;
   grid-template-areas:
   "header header header header header header header header header header header header"
   "nav nav nav nav nav nav nav nav nav nav nav nav"
-  ". . . . . options options . . . . ."
+  "score1 . . . . options options . . . . score2"
+  ". . . . . countdown countdown . . . . ."
   ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
   "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
@@ -45,9 +46,13 @@ nav {
 }
 #countdown {
   grid-area: countdown;
+  text-align: center;
 }
-#score {
-  grid-area: score;
+#score1 {
+  grid-area: score1;
+}
+#score2 {
+  grid-area: score2
 }
 footer {
   grid-area: footer;
