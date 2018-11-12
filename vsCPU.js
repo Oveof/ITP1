@@ -11,6 +11,9 @@ window.addEventListener("keyup", onKeyUp, false);
 var keyA = false;
 var keyS = false;
 var keyD = false;
+var arrowLeft = false;
+var arrowDown = false;
+var arrowRight = false;
 function onKeyDown(event) {
   var keyCode = event.keyCode;
   switch (keyCode) {
@@ -23,34 +26,43 @@ function onKeyDown(event) {
     case 68: //d
       keyD = true;
       break;
+    case 37: //left arrow
+      arrowLeft = true;
+      break;
+    case 40: //down arrow
+      arrowDown = true;
+      break;
+    case 39: //right arrow
+      arrowRight = true;
+      break;
     default:
   }
 }
 function onKeyUp(event) {
   var keyCode = event.keyCode;
-  selected1 = "";
   img1 = document.getElementById('imgp1')
   switch (keyCode) {
     case 65: //a
       keyA = false;
-      selected1 = "rock";
-
       break;
     case 83: //s
       keyS = false;
-      selected1 = "scissors";
       break;
     case 68: //d
       keyD = false;
-      selected1 = "paper";
+      break;
+    case 13:
+      click()
+      break;
+    case 37:
+      arrowLeft = false;
+      break;
+    case 40:
+      arrowDown = false;
+      break;
+    case 39:
+      arrowRight = false;
       break;
     default:
   }
-}
-
-//Calculate who wins
-var p1, p2;
-function check(p1, p2) {
-  return p1 ? Window[p2].weak : "p1"
-  p2 ? Window[p1].weak : "p2"
 }

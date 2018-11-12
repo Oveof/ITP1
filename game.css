@@ -43,6 +43,7 @@ nav {
 }
 #options {
   grid-area: options;
+  text-align: center;
 }
 #countdown {
   grid-area: countdown;
@@ -50,9 +51,11 @@ nav {
 }
 #score1 {
   grid-area: score1;
+  text-align: center;
 }
 #score2 {
-  grid-area: score2
+  grid-area: score2;
+  text-align: center;
 }
 footer {
   grid-area: footer;
@@ -91,10 +94,31 @@ h3 {
 }
 p {
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.8)
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
 }
-
 #countdownImage {
   max-width: 5vw;
   height: auto;
+}
+#start {
+  border-radius: 50%;
+  height: 10vh;
+  width: 10vh;
+  border: 0;
+  background-color: #4ff92a;
+  color: white;
+}
+#start:hover {
+  cursor: pointer;
+  animation: greenToRed 0.3s ease-in-out forwards;
+}
+@keyframes greenToRed {
+  from {
+    background-color: #4ff92a;
+  }
+  to {
+    background-color: #33ea0b;
+  }
+
 }

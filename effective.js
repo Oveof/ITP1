@@ -1,6 +1,6 @@
 var rock = {
   "name": "stein",
-  "effective": "scissor",
+  "effective": "scissors",
   "weak": "paper"
 }
 var paper = {
