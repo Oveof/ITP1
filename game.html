@@ -63,6 +63,7 @@
   var scorep2 = 0;
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
+
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
@@ -96,6 +97,10 @@
   function click() {
     selected1 = "";
     selected2 = "";
+    btnStart.disabled = true;
+    imgp1.src = "";
+    imgp2.src = "";
+    btnStart.style.backgroundColor = "red";
     interval = setInterval(function() {
       if (keyA == true) {
         selected1 = "rock";
@@ -119,10 +124,6 @@
     }, 1000 / 60)
     //Check 60 times a second what p1 has selected
     //Clear images
-    imgp1.src = "";
-    imgp2.src = "";
-    btnStart.disabled = true;
-    btnStart.style.backgroundColor = "red";
 
     window.setTimeout(function() {
       game()
@@ -136,14 +137,13 @@
     window.setTimeout(countDown, 3000);
 
   }
-
+  /*
   btnStart.onclick = function() {
-    click()
-  };
-  btnStart.onmousemove = function() {
-    btnStart.style.backgroundColor = "#4ff92a";
+    click();
+  }*/
+  function chickenDinner(target) {
+    target.style.backgroundColor = "green"
   }
-
 
   function game() {
     if (gamemode.value == "p1") {
@@ -154,24 +154,24 @@
     }
     clearInterval(interval);
     //Check that something was inputted
-    if (selected1,selected2 != "" && selected1,selected2 != null) {
+    if (selected1, selected2 != "" && selected1, selected2 != null) {
       imgp1.src = `assets/${selected1}.svg`
       imgp2.src = `assets/${selected2}.svg`
       //Check if p1 won
-      if (window[selected1].effective == selected2) {
+      if (window[selected1].effective[0] == selected2) {
         scorep1++
         score1.innerHTML = scorep1
-        alert("P1 WINS! with " + selected1 + " : " + selected2)
+        //alert("P1 WINS! with " + selected1 + " : " + selected2)
       }
       //Check if p2 won
-      else if (window[selected2].effective == selected1) {
+      else if (window[selected2].effective[0] == selected1) {
         scorep2++
         score2.innerHTML = scorep2
-        alert("P2 WINS! with " + selected2 + " : " + selected1)
+        //alert("P2 WINS! with " + selected2 + " : " + selected1)
       }
       //If not P1 or P2, then it is a tie
       else {
-        alert("It's a tie! " + selected1 + " : " + selected2)
+        //alert("It's a tie! " + selected1 + " : " + selected2)
       }
     } else {
       alert("Velg ein")

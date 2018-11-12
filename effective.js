@@ -1,15 +1,24 @@
 var rock = {
   "name": "stein",
-  "effective": "scissors",
+  "effective": ["scissors", "lizard"],
   "weak": "paper"
 }
 var paper = {
   "name": "papir",
-  "effective": "rock",
+  "effective": ["rock", "spock"],
   "weak": "scissor"
 }
 var scissors = {
   "name": "Saks",
-  "effective": "paper",
+  "effective": ["paper", "lizard"],
   "weak": "rock"
 }
+var lizard = {
+  "name": "Øgle",
+  "effective": ["spock", "paper"]
+}
+var spock = {
+  "name": "Spock",
+  "effective": ["rock", "scissors"]
+}
+rock.effective[0] 

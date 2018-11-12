@@ -17,90 +17,114 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto auto auto 1fr auto;
   grid-template-areas:
-  "header header header header header header header header header header header header"
-  "nav nav nav nav nav nav nav nav nav nav nav nav"
-  ". . . . . options options . . . . ."
-  ". . . . score1 countdown countdown score2 . . . ."
-  ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
-  "footer footer footer footer footer footer footer footer footer footer footer footer";
+    "header header header header header header header header header header header header"
+    "nav nav nav nav nav nav nav nav nav nav nav nav"
+    ". . . . . options options . . . . ."
+    ". . . . score1 countdown countdown score2 . . . ."
+    ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 
 header {
   grid-area: header;
   text-align: center;
 }
+
 nav {
   grid-area: nav;
 }
+
 #main {
   grid-area: main;
 }
+
 #imgp1 {
   grid-area: imgp1;
+  max-width: 20vw;
+  height: auto;
 }
+
+
 #imgp2 {
   grid-area: imgp2;
+  max-width: 20vw;
+  height: auto;
 }
+
 #options {
   grid-area: options;
   text-align: center;
 }
+
 #countdown {
   grid-area: countdown;
   text-align: center;
 }
+
 #score1 {
   grid-area: score1;
   text-align: center;
 }
+
 #score2 {
   grid-area: score2;
   text-align: center;
 }
+
 footer {
   grid-area: footer;
 }
+
 nav {
   margin: 0;
   padding: 0;
   text-align: center;
 }
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
 nav li {
   display: inline;
   padding: 0;
   margin: 0;
 }
+
 li a {
   text-align: center;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.95);
   display: inline;
 }
+
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
 }
+
 h1 {
   font-weight: 500;
 }
+
 h3 {
   font-weight: 400;
   color: rgba(0, 0, 0, 0.85)
 }
+
 p {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.8);
   text-align: center;
 }
+
 #countdownImage {
   max-width: 5vw;
   height: auto;
 }
+
 #start {
   border-radius: 50%;
   height: 10vh;
@@ -108,17 +132,19 @@ p {
   border: 0;
   background-color: #4ff92a;
   color: white;
-}
-#start:hover {
   cursor: pointer;
+}
+
+#start:hover {
   animation: greenToRed 0.3s ease-in-out forwards;
 }
+
 @keyframes greenToRed {
   from {
     background-color: #4ff92a;
   }
+
   to {
     background-color: #33ea0b;
   }
-
 }

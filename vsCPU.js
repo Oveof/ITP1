@@ -51,9 +51,6 @@ function onKeyUp(event) {
     case 68: //d
       keyD = false;
       break;
-    case 13:
-      click()
-      break;
     case 37:
       arrowLeft = false;
       break;
@@ -62,6 +59,11 @@ function onKeyUp(event) {
       break;
     case 39:
       arrowRight = false;
+      break;
+    case 13:
+      if (!btnStart.disabled) {
+        click()
+      }
       break;
     default:
   }
