@@ -43,9 +43,10 @@ nav {
   justify-content: center;
 }
 
-#rock, #scissors, #paper {
+#img-rock, #img-scissors, #img-paper {
   max-width: 24vh;
   height: auto;
+  cursor: pointer;
 }
 
 footer {
@@ -98,24 +99,21 @@ p {
   color: rgba(0, 0, 0, 0.95)
 }
 
-/*Parallax effect*/
-.parallax-club, .parallax-stone, .parallax-scissors, .parallax-paper {
-  height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+#rock, #scissors, #paper {
+  display: none;
 }
-
-.parallax-club {
-  background-image: url("assets/background.jpg");
+.fade-in {
+  animation-name: fade-in;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: forwards;
 }
-.parallax-rock {
-  background-image: url("assets/rock.svg");
-}
-.parallax-scissors {
-  background-image: url("assets/scissors.svg");
-}
-.parallax-paper {
-  background-image: url("assets/paper.svg");
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
