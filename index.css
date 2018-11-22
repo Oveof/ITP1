@@ -94,7 +94,7 @@ h3 {
   font-weight: 400;
   color: rgba(0, 0, 0, 0.85);
   text-align: center;
-  font-size: 3em
+  font-size: 1.5em
 }
 
 p {
@@ -102,14 +102,14 @@ p {
   color: rgba(0, 0, 0, 0.95)
 }
 
-#rock, #scissors, #paper {
+#dis-rock, #dis-scissors, #dis-paper {
   display: none;
 }
 .fade-in {
   display: initial;
   animation-name: fade-in;
   animation-iteration-count: 1;
-  animation-duration: 2s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-direction: forwards;
 }
@@ -119,30 +119,5 @@ p {
   }
   to {
     opacity: 1;
-  }
-}
-.animate-grid {
-  animation-name: focus;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes focus {
-  from {
-    grid-template-areas:
-      "header header header header header header header header header header header header"
-      "nav nav nav nav nav nav nav nav nav nav nav nav"
-      ". . . . choose choose choose choose .  . . ."
-      "main main main main main main main main main main main main"
-      "footer footer footer footer footer footer footer footer footer footer footer footer";
-  }
-  to {
-    grid-template-areas:
-      "header header header header header header header header header header header header"
-      "nav nav nav nav nav nav nav nav nav nav nav nav"
-      "choose choose choose choose . . . . . . . ."
-      "main main main main main main main main main main main main"
-      "footer footer footer footer footer footer footer footer footer footer footer footer";
   }
 }

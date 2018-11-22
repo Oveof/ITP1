@@ -13,35 +13,35 @@
   <div id="wrapper">
     <header>
       <h1>Jæren Stein-Saks-Papir klubb</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Heim</a></li>
-        <li><a href="game.html">Spel</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Heim</a></li>
+          <li><a href="game.html">Spel</a></li>
+        </ul>
+      </nav>
+    </header>
     <nav id="choose">
       <ul>
         <li>
           <ul>
-            <li>Stein</li>
-            <li>Saks</li>
-            <li>Papir</li>
+            <li id="rock">Stein</li>
+            <li id="scissors">Saks</li>
+            <li id="paper">Papir</li>
           </ul>
         </li>
         <li>Klubben</li>
       </ul>
     </nav>
     <div id="main">
-      <div id="rock">
+      <div id="dis-rock">
         <h3>Stein</h3>
         <p></p>
       </div>
-      <div id="scissors">
+      <div id="dis-scissors">
         <h3>Saks</h3>
         <p></p>
       </div>
-      <div id="paper">
+      <div id="dis-paper">
         <h3>Papir</h3>
         <p></p>
       </div>
@@ -55,15 +55,42 @@
 <script type="text/javascript">
   var choose = document.getElementById('choose');
   var grid = document.getElementById('wrapper');
+  var rock = document.getElementById('rock');
+  var scissors = document.getElementById('scissors')
+  var paper = document.getElementById('paper');
+  var disRock = document.getElementById('dis-rock');
+  var disScissors = document.getElementById('dis-scissors');
+  var disPaper = document.getElementById('dis-paper');
+  var running = false;
 
-  function click(weapon) {
+  function ifRunning() {
+    if (!running) {
+      running = true;
+      imgRock.classList.add("fade-in");
 
-    return
+      setTimeout(function() {
+        imgRock.classList.remove("fade-in");
+      }, 2500)
+      running = false;
+    }
   }
-  rock.onclick = click;
-  scissors.onclick = click;
-  paper.onclick = click;
 
+  rock.onclick = function() {
+    disRock.classList.add('fade-in');
+    disRock.style.display = "inherit";
+    disScissors.style.display = "none";
+    disPaper.style.display = "none";
+  }
+  scissors.onclick = function() {
+    disScissors.style.display = "inherit";
+    disPaper.style.display = "none";
+    disRock.style.display = "none";
+  }
+  paper.onclick = function() {
+    disPaper.style.display = "inherit";
+    disRock.style.display = "none";
+    disScissors.style.display = "none";
+  }
 
 
 
@@ -78,15 +105,6 @@
   }
   draw(imgRock, )
   function draw(weapon, ) {
-    if (!running) {
-      running = true;
-      imgRock.classList.add("fade-in");
-
-      setTimeout(function() {
-        imgRock.classList.remove("fade-in");
-      }, 2500)
-      running = false;
-    }
   }
 */
 </script>
