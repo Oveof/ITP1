@@ -12,30 +12,37 @@
 <body>
   <div id="wrapper">
     <header>
-      <h1>Jæren Stein-Saks-Papir klubb<h1>
-    </header>
+      <h1>Jæren Stein-Saks-Papir klubb</h1>
     <nav>
       <ul>
         <li><a href="index.html">Heim</a></li>
         <li><a href="game.html">Spel</a></li>
       </ul>
     </nav>
-    <div id="choose">
-      <img src="assets/rock.svg" alt="" id="img-rock">
-      <img src="assets/scissors.svg" alt="" id="img-scissors">
-      <img src="assets/paper.svg" alt="" id="img-paper">
-    </div>
+  </header>
+    <nav id="choose">
+      <ul>
+        <li>
+          <ul>
+            <li>Stein</li>
+            <li>Saks</li>
+            <li>Papir</li>
+          </ul>
+        </li>
+        <li>Klubben</li>
+      </ul>
+    </nav>
     <div id="main">
       <div id="rock">
         <h3>Stein</h3>
         <p></p>
       </div>
       <div id="scissors">
-        <h3></h3>
+        <h3>Saks</h3>
         <p></p>
       </div>
       <div id="paper">
-        <h3></h3>
+        <h3>Papir</h3>
         <p></p>
       </div>
     </div>
@@ -46,9 +53,6 @@
 </html>
 
 <script type="text/javascript">
-  var imgRock = document.getElementById('img-rock');
-  var imgScissors = document.getElementById('img-scissors');
-  var imgPaper = document.getElementById('img-paper');
   var choose = document.getElementById('choose');
   var grid = document.getElementById('wrapper');
 
@@ -59,22 +63,6 @@
   rock.onclick = click;
   scissors.onclick = click;
   paper.onclick = click;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -101,5 +89,4 @@
     }
   }
 */
-
 </script>

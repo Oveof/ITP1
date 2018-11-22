@@ -135,6 +135,25 @@ p {
   cursor: pointer;
 }
 
+.up-and-down {
+  animation-name: up-and-down;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards;
+}
+@keyframes up-and-down {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(1vh);
+  }
+  100% {
+    transform: translateY(-1vh);
+  }
+}
+
+
 #start:hover {
   animation: greenToRed 0.3s ease-in-out forwards;
 }
