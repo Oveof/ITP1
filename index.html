@@ -70,6 +70,7 @@
   var club = document.getElementById('club');
   var running = false;
   var display = "";
+  const info = ["rock", "scissors", "paper"];
 
   function ifRunning(item) {
     weapon = item;
@@ -83,6 +84,12 @@
       running = false;
     }
   }
+  function infoPage(weapon) {
+    for (var i = 0; i < info.length; i++) {
+      info[i]
+    }
+  }
+  rock.onclick = infoPage(this.id)
 
   rock.onclick = function() {
     if (display != "rock") {
