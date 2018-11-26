@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 0;
+  /*
   background-color: #efefef;
+  */
+  background-image: linear-gradient(180deg, #212121, #607D8B);
   font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 #wrapper {
@@ -21,7 +25,7 @@ body {
     "nav nav nav nav nav nav nav nav nav nav nav nav"
     ". . . . . options options . . . . ."
     ". . . . score1 countdown countdown score2 . . . ."
-    ". imgp1 imgp1 imgp1 . . . . imgp2 imgp2 imgp2 ."
+    ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
     "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 
@@ -38,24 +42,17 @@ nav {
   grid-area: main;
 }
 
-#img-p1 {
-  max-width: 20vw;
-  height: auto;
-}
-#img-p2 {
-  max-width: 20vw;
-  height: auto;
-}
-#imgp1, #imgp2 {
-  display: flex;
-  justify-content: center;
-}
 #imgp1 {
   grid-area: imgp1;
+  max-width: 20vw;
+  height: auto;
 }
+
+
 #imgp2 {
   grid-area: imgp2;
-
+  max-width: 20vw;
+  height: auto;
 }
 
 #options {
@@ -103,7 +100,8 @@ nav li {
 li a {
   text-align: center;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.95);
+  opacity: 0.95;
+  color: #FFFFFF;
   display: inline;
 }
 
@@ -137,7 +135,7 @@ p {
   height: 10vh;
   width: 10vh;
   border: 0;
-  background-color: #4ff92a;
+  background-color: #536DFE;
   color: white;
   cursor: pointer;
 }
@@ -167,10 +165,10 @@ p {
 
 @keyframes greenToRed {
   from {
-    background-color: #4ff92a;
+    background-color: #536DFE;
   }
 
   to {
-    background-color: #33ea0b;
+    background-color: #607D8B;
   }
 }

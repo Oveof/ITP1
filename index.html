@@ -67,6 +67,7 @@
   var disRock = document.getElementById('dis-rock');
   var disScissors = document.getElementById('dis-scissors');
   var disPaper = document.getElementById('dis-paper');
+  var club = document.getElementById('club');
   var running = false;
   var display = "";
 
@@ -90,25 +91,39 @@
       disRock.style.display = "inherit";
       disScissors.style.display = "none";
       disPaper.style.display = "none";
+      club.style.display = "none";
       display = "rock";
     }
   }
   scissors.onclick = function() {
-    if (display != scissors) {
+    if (display != "scissors") {
       ifRunning(disScissors.id);
       disScissors.style.display = "inherit";
       disPaper.style.display = "none";
       disRock.style.display = "none";
+      club.style.display = "none";
       display = "scissors"
     }
   }
   paper.onclick = function() {
-    if (display != paper) {
+    if (display != "paper") {
       ifRunning(disPaper.id);
       disPaper.style.display = "inherit";
       disRock.style.display = "none";
       disScissors.style.display = "none";
+      club.style.display = "none";
       display = "paper";
+    }
+  }
+  club.onclick = function() {
+    console.log("Hallo");
+    if (display != "club") {
+      ifRunning("club");
+      club.style.display = "inherit";
+      disRock.style.display = "none";
+      disScissors.style.display = "none";
+      disPaper.style.display = "none";
+      display = "club"
     }
   }
 

@@ -64,11 +64,6 @@
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
 
-  document.body.onload = function() {
-    btnStart.disabled = false;
-    document.getElementById('imgp1')
-  }
-
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
@@ -100,64 +95,55 @@
   }
 
   function click() {
-    //do animation
-    countdownImage.classList.add('up-and-down')
-    //clear player selection
-    selected1 = "";
-    selected2 = "";
-    //disable start button
-    btnStart.disabled = true;
-    //Reset images
-    imgp1.src = "";
-    imgp2.src = "";
-    //indicate start with color change of button
-    btnStart.style.backgroundColor = "red";
-    interval = setInterval(function() {
-      //Check if any keys relating to keybindings are pressed, and set the appropriate "weapon"
-      if (keyA == true) {
-        selected1 = "rock";
-      }
-      if (keyS == true) {
-        selected1 = "scissors";
-      }
-      if (keyD == true) {
-        selected1 = "paper";
-      }
-      if (arrowLeft == true) {
-        selected2 = "rock";
-      }
-      if (arrowDown == true) {
-        selected2 = "scissors";
-      }
-      if (arrowRight == true) {
-        selected2 = "paper";
-      }
-      console.log(`P1: ${selected1} P2: ${selected2}`);
-      //Check 60 times a second what p1 & p2 has selected
-    }, 1000 / 60)
-    //starts game function after 3 seconds of the button being pressed
-    window.setTimeout(function() {
-      game()
-    }, 3000);
-    i = 2
-    //Countdown
-    window.setTimeout(countDown, 1000);
+    if (!btnStart.disabled) {
+      countdownImage.classList.add('up-and-down')
+      selected1 = "";
+      selected2 = "";
+      btnStart.disabled = true;
+      imgp1.src = "";
+      imgp2.src = "";
+      btnStart.style.backgroundColor = "#607D8B";
+      interval = setInterval(function() {
+        if (keyA == true) {
+          selected1 = "rock";
+        }
+        if (keyS == true) {
+          selected1 = "scissors";
+        }
+        if (keyD == true) {
+          selected1 = "paper";
+        }
+        if (arrowLeft == true) {
+          selected2 = "rock";
+        }
+        if (arrowDown == true) {
+          selected2 = "scissors";
+        }
+        if (arrowRight == true) {
+          selected2 = "paper";
+        }
+        console.log(`P1: ${selected1} P2: ${selected2}`);
+      }, 1000 / 60)
+      //Check 60 times a second what p1 has selected
+      //Clear images
 
-    window.setTimeout(countDown, 2000);
+      window.setTimeout(function() {
+        game()
+      }, 3000);
+      i = 2
+      //Countdown
+      window.setTimeout(countDown, 1000);
 
-    window.setTimeout(countDown, 3000);
+      window.setTimeout(countDown, 2000);
 
+      window.setTimeout(countDown, 3000);
+    }
   }
-  /*
-  btnStart.onclick = function() {
-    click();
-  }*/
-  function chickenDinner(target) {
-    target.style.backgroundColor = "green"
-  }
+
+  btnStart.onclick = click;
+
 
   function game() {
-    //Check which gamemode, and set the appropriate values
     if (gamemode.value == "p1") {
       var p2 = "cpu"
       selected2 = cpu();
@@ -166,17 +152,17 @@
     }
     clearInterval(interval);
     //Check that something was inputted
-    if (selected1, selected2 != "" && selected1, selected2 != null) {
+    if (window[selected1] != null && window[selected2] != null) {
       imgp1.src = `assets/${selected1}.svg`
       imgp2.src = `assets/${selected2}.svg`
       //Check if p1 won
-      if (window[selected1].effective[0] == selected2 || window[selected1].effective[1] == selected2) {
+      if (window[selected1].effective[0] == selected2) {
         scorep1++
         score1.innerHTML = scorep1
         //alert("P1 WINS! with " + selected1 + " : " + selected2)
       }
       //Check if p2 won
-      else if (window[selected2].effective[0] == selected1 || window[selected2].effective[1] == selected1) {
+      else if (window[selected2].effective[0] == selected1) {
         scorep2++
         score2.innerHTML = scorep2
         //alert("P2 WINS! with " + selected2 + " : " + selected1)
@@ -188,8 +174,7 @@
     } else {
       alert("Velg ein")
     }
-    //reset properties
-    btnStart.style.backgroundColor = "#4ff92a";
+    btnStart.style.backgroundColor = "#536DFE";
     btnStart.disabled = false;
   }
 </script>
