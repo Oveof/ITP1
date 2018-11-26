@@ -21,4 +21,3 @@ var spock = {
   "name": "Spock",
   "effective": ["rock", "scissors"]
 }
-rock.effective[0] 

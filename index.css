@@ -1,10 +1,19 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #efefef;
+  background-color: #607D8B;
   font-family: "Roboto", sans-serif;
+  color: white;
 }
-
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+/*
+:root {
+  --main-bg-color: #
+}
+*/
 #wrapper {
   display: grid;
   width: 100vw;
@@ -14,54 +23,33 @@ body {
   innholdet på nettsiden og enden av nettlesaren
   */
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 5vh auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   justify-content: center;
   grid-template-areas:
     "header header header header header header header header header header header header"
-    ". . . . . . . . . . . ."
     ". . . . choose choose choose choose .  . . ."
-    "main main main main main main main main main main main main"
+    ". main main main main main main main main main main ."
     "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 
 header {
   grid-area: header;
   text-align: center;
+  background-color: #212121;
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  box-shadow: 0px -12px 42px 0px rgba(0,0,0,0.75);
+}
+header nav {
+  color: white;
 }
 
 nav {
   grid-area: nav;
-}
-
-#main {
-  grid-area: main;
-}
-
-#choose {
-  grid-area: choose;
-  display: flex;
-  justify-content: center;
-}
-#choose li {
-  cursor: pointer;
-}
-
-#img-rock, #img-scissors, #img-paper {
-  max-width: 24vh;
-  height: auto;
-  cursor: pointer;
-}
-
-footer {
-  grid-area: footer;
-}
-
-nav {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -77,29 +65,37 @@ nav li {
 li a {
   text-align: center;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.95);
+  /*color: rgba(0, 0, 0, 0.95);*/
+  color: #efefef;
+  opacity: 0.6;
   display: inline;
+  font-size: 1.3em;
+}
+li a:hover {
+  animation-name: slight-opacity;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+
+}
+@keyframes slight-opacity {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  padding: 0;
-  margin: 0;
+#choose {
+  grid-area: choose;
+  display: flex;
+  justify-content: center;
+  margin: 0.9vh
 }
-
-h1 {
-  font-weight: 500;
-}
-
-h3 {
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.85);
-  text-align: center;
-  font-size: 1.5em
-}
-
-p {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.95)
+#choose li {
+  cursor: pointer;
 }
 
 #dis-rock, #dis-scissors, #dis-paper {
@@ -120,4 +116,34 @@ p {
   to {
     opacity: 1;
   }
+}
+
+#main {
+  grid-area: main;
+  background-color: #455A64;
+
+}
+#main-wrapper {
+  margin: 1%
+}
+h1 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+  opacity: 0.85;
+  color: white;
+  text-align: center;
+  font-size: 1.7em
+}
+
+p {
+  font-weight: 400;
+  color: #F0F0F0;
+}
+
+
+footer {
+  grid-area: footer;
 }
