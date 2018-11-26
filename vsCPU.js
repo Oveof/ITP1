@@ -5,6 +5,16 @@ function cpu() {
        : rand == 2 ? "scissors"
        : "paper"
 }
+/*
+function cooper() {
+  var rand = Math.floor(Math.random() * (6-1) + 1);
+  return rand == 1 ? "rock"
+        :rand == 2 ? "scissors"
+        :rand == 3 ? "paper"
+        :rand == 4 ? "lizard"
+        :rand "spock"
+}
+*/
 window.addEventListener("keydown", onKeyDown, false);
 window.addEventListener("keyup", onKeyUp, false);
 //Player controls

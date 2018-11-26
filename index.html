@@ -33,6 +33,7 @@
       </ul>
     </nav>
     <div id="main">
+<<<<<<< HEAD
       <div id="rock">
         <h3>Stein</h3>
         <p></p>
@@ -44,6 +45,25 @@
       <div id="paper">
         <h3>Papir</h3>
         <p></p>
+=======
+      <div id="main-wrapper">
+        <div id="dis-rock">
+          <h3>Stein</h3>
+          <p>Stein er ein ekte klassiker.</p>
+        </div>
+        <div id="dis-scissors">
+          <h3>Saks</h3>
+          <p></p>
+        </div>
+        <div id="dis-paper">
+          <h3>Papir</h3>
+          <p>Papir er crème de la crème når det kjem til stein-saks-papir. Enklast å bruke og får jobben gjort</p>
+        </div>
+        <div id="club">
+          <h3>Jæren Stein-saks-papir klubb</h3>
+          <p>Stiftet i 793 når vikingane på Jæren skulle bestemme kven som skulle på shopping til England</p>
+        </div>
+>>>>>>> tmp
       </div>
     </div>
     <footer>Laget av Ove Oftedal</footer>
@@ -58,6 +78,7 @@
   var rock = document.getElementById('rock');
   var scissors = document.getElementById('scissors')
   var paper = document.getElementById('paper');
+<<<<<<< HEAD
   const game = ["rock", "scissors", "paper"];
 
   function reset(s, h1, h2) {
@@ -85,9 +106,28 @@
         break;
       default:
 
+=======
+  var disRock = document.getElementById('dis-rock');
+  var disScissors = document.getElementById('dis-scissors');
+  var disPaper = document.getElementById('dis-paper');
+  var running = false;
+  var display = "";
+
+  function ifRunning(item) {
+    weapon = item;
+    if (!running) {
+      running = true;
+      window[weapon].classList.add("fade-in");
+
+      setTimeout(function() {
+        window[weapon].classList.remove("fade-in");
+      }, 600)
+      running = false;
+>>>>>>> tmp
     }
   }
   rock.onclick = function() {
+<<<<<<< HEAD
     click("rock");
   }
   scissors.onclick = function() {
@@ -95,6 +135,34 @@
   }
   paper.onclick = function() {
     click("paper");
+=======
+    if (display != "rock") {
+      ifRunning(disRock.id);
+      disRock.classList.add('fade-in');
+      disRock.style.display = "inherit";
+      disScissors.style.display = "none";
+      disPaper.style.display = "none";
+      display = "rock";
+    }
+  }
+  scissors.onclick = function() {
+    if (display != scissors) {
+      ifRunning(disScissors.id);
+      disScissors.style.display = "inherit";
+      disPaper.style.display = "none";
+      disRock.style.display = "none";
+      display = "scissors"
+    }
+  }
+  paper.onclick = function() {
+    if (display != paper) {
+      ifRunning(disPaper.id);
+      disPaper.style.display = "inherit";
+      disRock.style.display = "none";
+      disScissors.style.display = "none";
+      display = "paper";
+    }
+>>>>>>> tmp
   }
 
 
