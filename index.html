@@ -70,7 +70,7 @@
   var club = document.getElementById('club');
   var running = false;
   var display = "";
-  const info = ["rock", "scissors", "paper"];
+  const info = ["rock", "scissors", "paper", "club"];
 
   function ifRunning(item) {
     weapon = item;
@@ -86,10 +86,15 @@
   }
   function infoPage(weapon) {
     for (var i = 0; i < info.length; i++) {
-      info[i]
+      if (weapon != info[i]) {
+        window[info[i]].style.display = "none";
+      }
+      window[info[i]].style.display = "inherit"
     }
   }
-  rock.onclick = infoPage(this.id)
+  rock.onclick = infoPage(this.id);
+  scissors.onclick = infoPage(this.id);
+  paper.onclick = infoPage(this.id);
 
   rock.onclick = function() {
     if (display != "rock") {
