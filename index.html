@@ -29,7 +29,7 @@
             <li id="paper">Papir</li>
           </ul>
         </li>
-        <li>Klubben</li>
+        <li id="club">Klubben</li>
       </ul>
     </nav>
     <div id="main">
@@ -46,7 +46,7 @@
           <h3>Papir</h3>
           <p>Papir er crème de la crème når det kjem til stein-saks-papir. Enklast å bruke og får jobben gjort</p>
         </div>
-        <div id="club">
+        <div id="dis-club">
           <h3>Jæren Stein-saks-papir klubb</h3>
           <p>Stiftet i 793 når vikingane på Jæren skulle bestemme kven som skulle på shopping til England</p>
         </div>
@@ -64,13 +64,14 @@
   var rock = document.getElementById('rock');
   var scissors = document.getElementById('scissors')
   var paper = document.getElementById('paper');
+  var club = document.getElementById('club');
   var disRock = document.getElementById('dis-rock');
   var disScissors = document.getElementById('dis-scissors');
   var disPaper = document.getElementById('dis-paper');
-  var club = document.getElementById('club');
+  var disClub = document.getElementById('dis-club');
   var running = false;
   var display = "";
-  const info = ["rock", "scissors", "paper", "club"];
+  var info = ["dis-rock", "dis-scissors", "dis-paper", "dis-club"];
 
   function ifRunning(item) {
     weapon = item;
@@ -84,68 +85,24 @@
       running = false;
     }
   }
-  function infoPage(weapon) {
+
+  function infoPage() {
+    var weapon = `dis-${this.id}`
     for (var i = 0; i < info.length; i++) {
       if (weapon != info[i]) {
         window[info[i]].style.display = "none";
+        console.log(info[i]);
+      } else {
+        ifRunning(weapon);
+        window[info[i]].style.display = "inherit";
       }
-      window[info[i]].style.display = "inherit"
     }
   }
-  rock.onclick = infoPage(this.id);
-  scissors.onclick = infoPage(this.id);
-  paper.onclick = infoPage(this.id);
-
-  rock.onclick = function() {
-    if (display != "rock") {
-      ifRunning(disRock.id);
-      disRock.classList.add('fade-in');
-      disRock.style.display = "inherit";
-      disScissors.style.display = "none";
-      disPaper.style.display = "none";
-      club.style.display = "none";
-      display = "rock";
-    }
-  }
-  scissors.onclick = function() {
-    if (display != "scissors") {
-      ifRunning(disScissors.id);
-      disScissors.style.display = "inherit";
-      disPaper.style.display = "none";
-      disRock.style.display = "none";
-      club.style.display = "none";
-      display = "scissors"
-    }
-  }
-  paper.onclick = function() {
-    if (display != "paper") {
-      ifRunning(disPaper.id);
-      disPaper.style.display = "inherit";
-      disRock.style.display = "none";
-      disScissors.style.display = "none";
-      club.style.display = "none";
-      display = "paper";
-    }
-  }
-  club.onclick = function() {
-    console.log("Hallo");
-    if (display != "club") {
-      ifRunning("club");
-      club.style.display = "inherit";
-      disRock.style.display = "none";
-      disScissors.style.display = "none";
-      disPaper.style.display = "none";
-      display = "club"
-    }
-  }
-
-
-
-
-
-
-
-
+  rock.onclick = infoPage;
+  scissors.onclick = infoPage;
+  paper.onclick = infoPage;
+  club.onclick = infoPage;
+  
   /*
   imgRock.onclick = function() {
     grid.classList.add('animate-grid');
