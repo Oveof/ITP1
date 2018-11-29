@@ -13,13 +13,13 @@
   <div id="wrapper">
     <header>
       <h1>Jæren Stein-Saks-Papir klubb</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Heim</a></li>
+          <li><a href="game.html">Spel</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Heim</a></li>
-        <li><a href="game.html">Spel</a></li>
-      </ul>
-    </nav>
     <div id="options">
       <form>
         <select id="gamemode">
@@ -158,23 +158,21 @@
       //Check if p1 won
       if (window[selected1].effective[0] == selected2) {
         scorep1++
+        imgp1.classList.add('win');
         score1.innerHTML = scorep1
-        //alert("P1 WINS! with " + selected1 + " : " + selected2)
       }
       //Check if p2 won
       else if (window[selected2].effective[0] == selected1) {
         scorep2++
         score2.innerHTML = scorep2
-        //alert("P2 WINS! with " + selected2 + " : " + selected1)
       }
-      //If not P1 or P2, then it is a tie
       else {
-        //alert("It's a tie! " + selected1 + " : " + selected2)
       }
     } else {
       alert("Velg ein")
     }
     btnStart.style.backgroundColor = "#536DFE";
+    countdownImage.classList.remove('up-and-down')
     btnStart.disabled = false;
   }
 </script>

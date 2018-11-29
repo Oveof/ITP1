@@ -3,8 +3,9 @@ body {
   padding: 0;
   /*
   background-color: #efefef;
-  */
   background-image: linear-gradient(180deg, #212121, #607D8B);
+  */
+    background-color: #607D8B;
   font-family: "Roboto", sans-serif;
   color: white;
 }
@@ -19,10 +20,9 @@ body {
   innholdet på nettsiden og enden av nettlesaren
   */
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr auto;
   grid-template-areas:
     "header header header header header header header header header header header header"
-    "nav nav nav nav nav nav nav nav nav nav nav nav"
     ". . . . . options options . . . . ."
     ". . . . score1 countdown countdown score2 . . . ."
     ". imgp1 imgp1 imgp1 main main main main imgp2 imgp2 imgp2 ."
@@ -32,6 +32,10 @@ body {
 header {
   grid-area: header;
   text-align: center;
+  background-color: #212121;
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  box-shadow: 0px -12px 42px 0px rgba(0,0,0,0.75);
 }
 
 nav {
@@ -100,9 +104,27 @@ nav li {
 li a {
   text-align: center;
   text-decoration: none;
-  opacity: 0.95;
-  color: #FFFFFF;
+  /*color: rgba(0, 0, 0, 0.95);*/
+  color: #efefef;
+  opacity: 0.6;
   display: inline;
+  font-size: 1.3em;
+}
+li a:hover {
+  animation-name: slight-opacity;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+
+}
+@keyframes slight-opacity {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h3 {
@@ -135,7 +157,7 @@ p {
   height: 10vh;
   width: 10vh;
   border: 0;
-  background-color: #536DFE;
+  background-color: #3d58ed;
   color: white;
   cursor: pointer;
 }
@@ -157,18 +179,35 @@ p {
     transform: translateY(-1vh);
   }
 }
+.win {
+  animation-name: win;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes win {
+  0% {
+    transform: scale(1.5vh, 1,5vh);
+  }
+  70% {
+
+  }
+  100% {
+
+  }
+}
 
 
 #start:hover {
-  animation: greenToRed 0.3s ease-in-out forwards;
+  animation: activate 0.3s ease-in-out forwards;
 }
 
-@keyframes greenToRed {
+@keyframes activate {
   from {
-    background-color: #536DFE;
+    background-color: #3d58ed;
   }
 
   to {
-    background-color: #607D8B;
+    background-color: #536DFE;
   }
 }
