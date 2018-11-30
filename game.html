@@ -50,7 +50,7 @@
 </body>
 
 </html>
-<script src="vsCPU.js" charset="utf-8"></script>
+<script src="controls.js" charset="utf-8"></script>
 <script src="effective.js" charset="utf-8"></script>
 <script type="text/javascript">
   var gamemode = document.getElementById('gamemode');
@@ -100,27 +100,46 @@
       selected1 = "";
       selected2 = "";
       btnStart.disabled = true;
+      gamemode.disabled = true;
       imgp1.src = "";
       imgp2.src = "";
+      countdownImage.src = "";
       btnStart.style.backgroundColor = "#607D8B";
+      //Checking input every 60 second and updating the image if player 1 is selected
       interval = setInterval(function() {
-        if (keyA == true) {
-          selected1 = "rock";
-        }
-        if (keyS == true) {
-          selected1 = "scissors";
-        }
-        if (keyD == true) {
-          selected1 = "paper";
-        }
-        if (arrowLeft == true) {
-          selected2 = "rock";
-        }
-        if (arrowDown == true) {
-          selected2 = "scissors";
-        }
-        if (arrowRight == true) {
-          selected2 = "paper";
+        if (gamemode.value == "p1") {
+          if (keyA == true) {
+            selected1 = "rock";
+            imgp1.src = `assets/${selected1}.svg`
+          }
+          if (keyS == true) {
+            selected1 = "scissors";
+            imgp1.src = `assets/${selected1}.svg`
+          }
+          if (keyD == true) {
+            selected1 = "paper";
+            imgp1.src = `assets/${selected1}.svg`
+          }
+        } else {
+
+          if (keyA == true) {
+            selected1 = "rock";
+          }
+          if (keyS == true) {
+            selected1 = "scissors";
+          }
+          if (keyD == true) {
+            selected1 = "paper";
+          }
+          if (arrowLeft == true) {
+            selected2 = "rock";
+          }
+          if (arrowDown == true) {
+            selected2 = "scissors";
+          }
+          if (arrowRight == true) {
+            selected2 = "paper";
+          }
         }
         console.log(`P1: ${selected1} P2: ${selected2}`);
       }, 1000 / 60)
@@ -165,14 +184,13 @@
       else if (window[selected2].effective[0] == selected1) {
         scorep2++
         score2.innerHTML = scorep2
-      }
-      else {
-      }
+      } else {}
     } else {
       alert("Velg ein")
     }
     btnStart.style.backgroundColor = "#536DFE";
     countdownImage.classList.remove('up-and-down')
     btnStart.disabled = false;
+    gamemode.disabled = false;
   }
 </script>
