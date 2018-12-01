@@ -23,12 +23,14 @@
     <div id="options">
       <form>
         <select id="gamemode">
-          <option selected disabled>Velg kor mange spelare</option>
-          <option value="p1">P1 VS CPU</option>
-          <option value="p2">P1 VS P2</option>
+          <option selected disabled>Spelare</option>
+          <option value="p1">P1</option>
+          <option value="p2">P2</option>
         </select>
-        <button type="button" id="start" disabled>Start</button>
       </form>
+    </div>
+    <div id="start-button">
+      <button type="button" id="start" disabled>Start</button>
     </div>
     <div id="imgp1">
       <img src="" alt="" id="img-p1">
@@ -43,6 +45,9 @@
     <div id="score1">P1 score<p id="score1-display"></p>
     </div>
     <div id="score2">P2 score<p id="score2-display"></p>
+    </div>
+    <div id="win">
+
     </div>
     <footer>Laget av Ove Oftedal</footer>
   </div>
@@ -63,6 +68,7 @@
   var scorep2 = 0;
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
+  var win = document.getElementById('win');
 
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
@@ -104,6 +110,7 @@
       imgp1.src = "";
       imgp2.src = "";
       countdownImage.src = "";
+      win.innerHTML = "";
       btnStart.style.backgroundColor = "#607D8B";
       //Checking input every 60 second and updating the image if player 1 is selected
       interval = setInterval(function() {
@@ -141,7 +148,6 @@
             selected2 = "paper";
           }
         }
-        console.log(`P1: ${selected1} P2: ${selected2}`);
       }, 1000 / 60)
       //Check 60 times a second what p1 has selected
       //Clear images
@@ -151,11 +157,11 @@
       }, 3000);
       i = 2
       //Countdown
+      window.setTimeout(countDown, 0);
+
       window.setTimeout(countDown, 1000);
 
       window.setTimeout(countDown, 2000);
-
-      window.setTimeout(countDown, 3000);
     }
   }
 
@@ -175,21 +181,31 @@
       imgp1.src = `assets/${selected1}.svg`
       imgp2.src = `assets/${selected2}.svg`
       //Check if p1 won
-      if (window[selected1].effective[0] == selected2) {
+      if (window[selected1].effective == selected2) {
         scorep1++
-        imgp1.classList.add('win');
+        imgp1.classList.add('winning');
         score1.innerHTML = scorep1
+        win.innerHTML = "P1 VANT"
+
       }
       //Check if p2 won
-      else if (window[selected2].effective[0] == selected1) {
-        scorep2++
-        score2.innerHTML = scorep2
-      } else {}
+      else if (window[selected2].effective == selected1) {
+        scorep2++;
+        imgp2.classList.add('winning');
+        score2.innerHTML = scorep2;
+        win.innerHTML = "P2 VANT";
+      } else {
+        win.innerHTML = "Uavgjort"
+      }
     } else {
       alert("Velg ein")
     }
-    btnStart.style.backgroundColor = "#536DFE";
+    btnStart.style.backgroundColor = "#3d58ed";
     countdownImage.classList.remove('up-and-down')
+    setTimeout(function() {
+      imgp1.classList.remove('winning');
+      imgp2.classList.remove('winning');
+    }, 2000)
     btnStart.disabled = false;
     gamemode.disabled = false;
   }

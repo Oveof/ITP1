@@ -98,6 +98,7 @@ li a:hover {
   cursor: pointer;
 }
 
+
 #dis-rock, #dis-scissors, #dis-paper, #dis-club {
   display: none;
 }
