@@ -20,13 +20,14 @@ body {
   innholdet på nettsiden og enden av nettlesaren
   */
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto auto auto 1fr auto;
+  grid-template-rows: auto auto auto auto 1fr auto auto;
   grid-template-areas:
     "header header header header header header header header header header header header"
     ". . . . . options options . . . . ."
     ". . . . . start start . . . . ."
     ". . . . score1 countdown countdown score2 . . . ."
     ". imgp1 imgp1 imgp1 . win win . imgp2 imgp2 imgp2 ."
+    ". key1 key1 key1 . . . . key2 key2 key2 ."
     "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 
@@ -41,6 +42,16 @@ header {
 
 nav {
   grid-area: nav;
+}
+#key1 {
+  grid-area: key1;
+}
+#key2 {
+  grid-area: key2;
+}
+#key1, #key2 {
+  text-align: center;
+  font-size: 2em;
 }
 
 #win {

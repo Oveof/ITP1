@@ -47,8 +47,9 @@
     <div id="score2">P2 score<p id="score2-display"></p>
     </div>
     <div id="win">
-
     </div>
+    <div id="key1">P1: Stein: A Saks: S Papir: D</div>
+    <div id="key2">P2: Stein: &larr; Saks: &darr; Papir: &rarr;</div>
     <footer>Laget av Ove Oftedal</footer>
   </div>
 
@@ -56,7 +57,6 @@
 
 </html>
 <script src="controls.js" charset="utf-8"></script>
-<script src="effective.js" charset="utf-8"></script>
 <script type="text/javascript">
   var gamemode = document.getElementById('gamemode');
   var btnStart = document.getElementById('start');
@@ -69,6 +69,19 @@
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
   var win = document.getElementById('win');
+  var rock = {
+    "name": "stein",
+    "effective": "scissors"
+  }
+  var paper = {
+    "name": "papir",
+    "effective": "rock"
+  }
+  var scissors = {
+    "name": "Saks",
+    "effective": "paper"
+  }
+
 
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
