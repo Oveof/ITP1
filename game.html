@@ -169,13 +169,13 @@
 
 
   function game() {
+    clearInterval(interval);
     if (gamemode.value == "p1") {
       var p2 = "cpu"
       selected2 = cpu();
     } else {
       var p2 = "p2"
     }
-    clearInterval(interval);
     //Check that something was inputted
     if (window[selected1] != null && window[selected2] != null) {
       imgp1.src = `assets/${selected1}.svg`

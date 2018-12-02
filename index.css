@@ -99,7 +99,7 @@ li a:hover {
 }
 
 
-#dis-rock, #dis-scissors, #dis-paper, #dis-club {
+#dis-rock, #dis-scissors, #dis-paper {
   display: none;
 }
 .fade-in {
@@ -147,4 +147,13 @@ p {
 
 footer {
   grid-area: footer;
+}
+
+#map {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+}
+img {
+  bottom: 0;
 }

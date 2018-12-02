@@ -40,7 +40,7 @@
         </div>
         <div id="dis-scissors">
           <h3>Saks</h3>
-          <p></p>
+          <p>Saks er den mest blodige av valga,</p>
         </div>
         <div id="dis-paper">
           <h3>Papir</h3>
@@ -48,7 +48,10 @@
         </div>
         <div id="dis-club">
           <h3>Jæren Stein-saks-papir klubb</h3>
-          <p>Stiftet i 793 når vikingane på Jæren skulle bestemme kven som skulle på shopping til England</p>
+          <p>Stiftet i 793 når vikingane på Jæren skulle bestemme kven som skulle på shopping til England. Fra den dagen startet Jæren stein-saks-papir klubb av dei som vant, for å praktisere sine evner til å slå sine motstandere i det eldgamle spelet</p>
+        </div>
+        <div id="map">
+          <img src="assets/rock-paper-scissors.svg" alt="">
         </div>
       </div>
     </div>
@@ -72,6 +75,7 @@
   var running = false;
   var display = "";
   var info = ["dis-rock", "dis-scissors", "dis-paper", "dis-club"];
+  var currentlyShowing = "dis-club";
 
   function ifRunning(item) {
     weapon = item;
@@ -88,13 +92,15 @@
 
   function infoPage() {
     var weapon = `dis-${this.id}`
-    for (var i = 0; i < info.length; i++) {
-      if (weapon != info[i]) {
-        window[info[i]].style.display = "none";
-        console.log(info[i]);
-      } else {
-        ifRunning(weapon);
-        window[info[i]].style.display = "inherit";
+    if (currentlyShowing != weapon) {
+      currentlyShowing = weapon;
+      for (var i = 0; i < info.length; i++) {
+        if (weapon != info[i]) {
+          window[info[i]].style.display = "none";
+        } else {
+          ifRunning(weapon);
+          window[info[i]].style.display = "inherit";
+        }
       }
     }
   }
@@ -103,12 +109,4 @@
   paper.onclick = infoPage;
   club.onclick = infoPage;
 
-  /*
-  imgRock.onclick = function() {
-    grid.classList.add('animate-grid');
-  }
-  draw(imgRock, )
-  function draw(weapon, ) {
-  }
-*/
 </script>
