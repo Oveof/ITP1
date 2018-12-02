@@ -24,8 +24,8 @@
       <form>
         <select id="gamemode">
           <option selected disabled>Spelare</option>
-          <option value="p1">P1</option>
-          <option value="p2">P2</option>
+          <option value="p1">PvP</option>
+          <option value="p2">PvE</option>
         </select>
       </form>
     </div>
@@ -69,6 +69,7 @@
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
   var win = document.getElementById('win');
+  //Objects with what is effective, used for checking who wins a round
   var rock = {
     "name": "stein",
     "effective": "scissors"
@@ -81,8 +82,13 @@
     "name": "Saks",
     "effective": "paper"
   }
-
-
+  //CPU
+  function cpu() {
+    var rand = Math.floor(Math.random() * (4 - 1)) + 1;
+    return rand == 1 ? "rock"
+         : rand == 2 ? "scissors"
+         : "paper"
+  }
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
@@ -91,7 +97,7 @@
       btnStart.disabled = true;
     }
   }
-
+  //function for changing images depending on how many seconds are left
   function countDown() {
     switch (i) {
       case 2:
@@ -112,10 +118,12 @@
     }
     i--
   }
-
+  //Start of the whole sequence of functions
   function click() {
     if (!btnStart.disabled) {
+      //starting countdown animation
       countdownImage.classList.add('up-and-down')
+      //Resetting images and disabling buttons
       selected1 = "";
       selected2 = "";
       btnStart.disabled = true;
@@ -127,6 +135,7 @@
       btnStart.style.backgroundColor = "#607D8B";
       //Checking input every 60 second and updating the image if player 1 is selected
       interval = setInterval(function() {
+        //Real time update of user choice if there is only one player
         if (gamemode.value == "p1") {
           if (keyA == true) {
             selected1 = "rock";
@@ -177,24 +186,28 @@
       window.setTimeout(countDown, 2000);
     }
   }
-
+  //Start button
   btnStart.onclick = click;
 
 
   function game() {
+    //stop interval checking user choice
     clearInterval(interval);
     if (gamemode.value == "p1") {
-      var p2 = "cpu"
+      var p2 = "CPU"
+      //get computer choice
       selected2 = cpu();
     } else {
-      var p2 = "p2"
+      var p2 = "P2"
     }
     //Check that something was inputted
     if (window[selected1] != null && window[selected2] != null) {
+      //Set appropriate images based on user(s) choice
       imgp1.src = `assets/${selected1}.svg`
       imgp2.src = `assets/${selected2}.svg`
       //Check if p1 won
       if (window[selected1].effective == selected2) {
+        //reward p1
         scorep1++
         imgp1.classList.add('winning');
         score1.innerHTML = scorep1
@@ -203,22 +216,25 @@
       }
       //Check if p2 won
       else if (window[selected2].effective == selected1) {
+        //reward p2
         scorep2++;
         imgp2.classList.add('winning');
         score2.innerHTML = scorep2;
-        win.innerHTML = "P2 VANT";
+        win.innerHTML = `${p2} VANT`;
       } else {
         win.innerHTML = "Uavgjort"
       }
     } else {
       alert("Velg ein")
     }
+    //Reset animation classes
     btnStart.style.backgroundColor = "#3d58ed";
     countdownImage.classList.remove('up-and-down')
     setTimeout(function() {
       imgp1.classList.remove('winning');
       imgp2.classList.remove('winning');
     }, 2000)
+    //reenable buttons
     btnStart.disabled = false;
     gamemode.disabled = false;
   }

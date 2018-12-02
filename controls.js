@@ -1,10 +1,3 @@
-//CPU
-function cpu() {
-  var rand = Math.floor(Math.random() * (4 - 1)) + 1;
-  return rand == 1 ? "rock"
-       : rand == 2 ? "scissors"
-       : "paper"
-}
 window.addEventListener("keydown", onKeyDown, false);
 window.addEventListener("keyup", onKeyUp, false);
 //Player controls
@@ -51,16 +44,16 @@ function onKeyUp(event) {
     case 68: //d
       keyD = false;
       break;
-    case 37:
+    case 37: //left arrow
       arrowLeft = false;
       break;
-    case 40:
+    case 40: //down arrow
       arrowDown = false;
       break;
-    case 39:
+    case 39: //right arrowDown
       arrowRight = false;
       break;
-    case 13:
+    case 13: //Enter
       click()
       break;
     default:
