@@ -77,6 +77,7 @@
   var info = ["dis-rock", "dis-scissors", "dis-paper", "dis-club"];
   var currentlyShowing = "dis-club";
 
+  //Function for running animation
   function ifRunning(item) {
     weapon = item;
     if (!running) {
@@ -91,9 +92,12 @@
   }
 
   function infoPage() {
+    //For comparing which element is clicked
     var weapon = `dis-${this.id}`
     if (currentlyShowing != weapon) {
       currentlyShowing = weapon;
+      //For loop going through the whole array with the elements
+      //and adding displaying the one who is clicked
       for (var i = 0; i < info.length; i++) {
         if (weapon != info[i]) {
           window[info[i]].style.display = "none";

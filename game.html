@@ -24,8 +24,8 @@
       <form>
         <select id="gamemode">
           <option selected disabled>Spelare</option>
-          <option value="p1">PvP</option>
-          <option value="p2">PvE</option>
+          <option value="p1">PvE</option>
+          <option value="p2">PvP</option>
         </select>
       </form>
     </div>
@@ -42,9 +42,9 @@
       <p id="countdownNumber"></p>
       <img src="" alt="" id="countdownImage">
     </div>
-    <div id="score1">P1 score<p id="score1-display"></p>
+    <div id="score1"><p id="user1" data-info="Spiller 1">Spiller 1</p><p id="score1-display"></p>
     </div>
-    <div id="score2">P2 score<p id="score2-display"></p>
+    <div id="score2"><p id="user2" data-info="Spiller 2">Spiller 2</p><p id="score2-display"></p>
     </div>
     <div id="win">
     </div>
@@ -69,6 +69,9 @@
   var score1 = document.getElementById('score1-display');
   var score2 = document.getElementById('score2-display');
   var win = document.getElementById('win');
+  var user1 = document.getElementById('user1');
+  var user2 = document.getElementById('user2');
+  var runningName = false;
   //Objects with what is effective, used for checking who wins a round
   var rock = {
     "name": "stein",
@@ -82,6 +85,19 @@
     "name": "Saks",
     "effective": "paper"
   }
+  let rock = "paper"
+
+  function setName() {
+    runningName = true
+    var username = prompt(`${this.getAttribute("data-info")} navn:`);
+    if (username != "") {
+      this.innerHTML = username;
+    }
+    runningName = false;
+  }
+  user1.onclick = setName;
+  user2.onclick = setName;
+
   //CPU
   function cpu() {
     var rand = Math.floor(Math.random() * (4 - 1)) + 1;
@@ -132,6 +148,9 @@
       imgp2.src = "";
       countdownImage.src = "";
       win.innerHTML = "";
+      if (gamemode.value == "p1") {
+        user2.innerHTML = "CPU"
+      }
       btnStart.style.backgroundColor = "#607D8B";
       //Checking input every 60 second and updating the image if player 1 is selected
       interval = setInterval(function() {

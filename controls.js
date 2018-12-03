@@ -54,7 +54,10 @@ function onKeyUp(event) {
       arrowRight = false;
       break;
     case 13: //Enter
-      click()
+      //Check if game is not running and prompt is not open
+      if (!btnStart.disabled && !runningName) {
+        click()
+      }
       break;
     default:
   }

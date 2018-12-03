@@ -47,7 +47,7 @@ nav {
 }
 #key1, #key2 {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 #win {
@@ -56,9 +56,21 @@ nav {
   font-size: 3em;
   margin-top: 1vh;
 }
+#user1, #user2 {
+  cursor: pointer;
+}
 
 #imgp1 {
   grid-area: imgp1;
+}
+#imgp2 {
+  grid-area: imgp2;
+}
+#imgp1, #imgp2 {
+  display: flex;
+  justify-content: center;
+}
+#img-p1, #img-p2 {
   max-width: 20vw;
   height: auto;
 }
@@ -69,11 +81,6 @@ nav {
   margin: 0.5vh
 }
 
-#imgp2 {
-  grid-area: imgp2;
-  max-width: 20vw;
-  height: auto;
-}
 
 #options {
   grid-area: options;
