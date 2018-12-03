@@ -78,7 +78,7 @@ nav {
 }
 
 #img-p1, #img-p2 {
-  max-width: 20vw;
+  min-width: 20vw;
   height: auto;
 }
 

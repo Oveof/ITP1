@@ -79,24 +79,20 @@
   //Objects with what is effective, used for checking who wins a round
   var rock = {
     "name": "stein",
-    "effective": "scissors",
-    "weak": "paper"
+    "effective": "scissors"
   }
   var paper = {
     "name": "papir",
-    "effective": "rock",
-    "weak": "scissors"
+    "effective": "rock"
   }
   var scissors = {
     "name": "Saks",
-    "effective": "paper",
-    "weak": "rock"
+    "effective": "paper"
   }
-
   function setName() {
     runningName = true
     var username = prompt(`${this.getAttribute("data-info")} navn:`);
-    if (username != "") {
+    if (username != "" && username != null) {
       this.innerHTML = username;
     }
     runningName = false;

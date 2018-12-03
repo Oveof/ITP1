@@ -69,16 +69,17 @@ nav li {
 li a {
   text-align: center;
   text-decoration: none;
-  /*color: rgba(0, 0, 0, 0.95);*/
   color: #efefef;
   opacity: 0.6;
   display: inline;
   font-size: 1.3em;
 }
 #list li img {
-  min-width: 2vw;
+  min-width: 4vw;
   height: auto;
-  display: inline;
+}
+#list li {
+  display: inline-block;
 }
 
 li a:hover {
@@ -106,12 +107,17 @@ li a:hover {
   margin: 0.9vh
 }
 
-#choose li {
-  cursor: pointer;
-}
 
 #dis-rock, #dis-scissors, #dis-paper {
   display: none;
+}
+
+#rock, #scissors, #paper, #club img {
+  border-radius: 50%  
+}
+
+li img {
+  cursor: pointer;
 }
 
 .fade-in {
@@ -133,14 +139,40 @@ li a:hover {
   }
 }
 
-#main {
-  grid-area: main;
-  background-color: #455A64;
-}
-
 #main-wrapper {
   margin: 1%
 }
+#main {
+  grid-area: main;
+  background-color: #455A64;
+  position: relative;
+}
+.logo {
+  display: block;
+  top: 5vh;
+  right: 1vh;
+  position: absolute;
+  max-width: 15vw;
+  height: auto;
+}
+span {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+}
+#image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+#club-logo {
+  max-height: 25vw;
+  width: auto;
+}
+h4 {
+  text-align: center;
+}
+
+
 
 h1 {
   font-weight: 600;
