@@ -7,6 +7,7 @@ var keyD = false;
 var arrowLeft = false;
 var arrowDown = false;
 var arrowRight = false;
+
 function onKeyDown(event) {
   var keyCode = event.keyCode;
   switch (keyCode) {
@@ -31,6 +32,7 @@ function onKeyDown(event) {
     default:
   }
 }
+
 function onKeyUp(event) {
   var keyCode = event.keyCode;
   img1 = document.getElementById('imgp1')

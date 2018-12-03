@@ -42,9 +42,13 @@
       <p id="countdownNumber"></p>
       <img src="" alt="" id="countdownImage">
     </div>
-    <div id="score1"><p id="user1" data-info="Spiller 1">Spiller 1</p><p id="score1-display"></p>
+    <div id="score1">
+      <p id="user1" data-info="Spiller 1">Spiller 1</p>
+      <p id="score1-display"></p>
     </div>
-    <div id="score2"><p id="user2" data-info="Spiller 2">Spiller 2</p><p id="score2-display"></p>
+    <div id="score2">
+      <p id="user2" data-info="Spiller 2">Spiller 2</p>
+      <p id="score2-display"></p>
     </div>
     <div id="win">
     </div>
@@ -75,17 +79,19 @@
   //Objects with what is effective, used for checking who wins a round
   var rock = {
     "name": "stein",
-    "effective": "scissors"
+    "effective": "scissors",
+    "weak": "paper"
   }
   var paper = {
     "name": "papir",
-    "effective": "rock"
+    "effective": "rock",
+    "weak": "scissors"
   }
   var scissors = {
     "name": "Saks",
-    "effective": "paper"
+    "effective": "paper",
+    "weak": "rock"
   }
-  let rock = "paper"
 
   function setName() {
     runningName = true
@@ -101,9 +107,9 @@
   //CPU
   function cpu() {
     var rand = Math.floor(Math.random() * (4 - 1)) + 1;
-    return rand == 1 ? "rock"
-         : rand == 2 ? "scissors"
-         : "paper"
+    return rand == 1 ? "rock" :
+      rand == 2 ? "scissors" :
+      "paper"
   }
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
