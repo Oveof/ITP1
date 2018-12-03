@@ -73,11 +73,14 @@ li a {
   opacity: 0.6;
   display: inline;
   font-size: 1.3em;
+  margin: 3vh;
 }
+
 #list li img {
   min-width: 4vw;
   height: auto;
 }
+
 #list li {
   display: inline-block;
 }
@@ -107,13 +110,28 @@ li a:hover {
   margin: 0.9vh
 }
 
-
 #dis-rock, #dis-scissors, #dis-paper {
   display: none;
 }
 
 #rock, #scissors, #paper, #club img {
-  border-radius: 50%  
+  border-radius: 50%
+}
+#rock:hover, #scissors:hover, #paper:hover, #club img:hover {
+  animation: big;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+
+
+}
+@keyframes big {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
 }
 
 li img {
@@ -142,37 +160,40 @@ li img {
 #main-wrapper {
   margin: 1%
 }
+
 #main {
   grid-area: main;
   background-color: #455A64;
   position: relative;
 }
+
 .logo {
-  display: block;
-  top: 5vh;
-  right: 1vh;
-  position: absolute;
   max-width: 15vw;
   height: auto;
+  float: right;
+  padding-left: 0.6vw;
 }
+
 span {
   position: absolute;
   top: 1vh;
   right: 1vh;
+  text-align: right !important;
 }
+
 #image-wrapper {
   display: flex;
   justify-content: center;
 }
+
 #club-logo {
   max-height: 25vw;
   width: auto;
 }
+
 h4 {
   text-align: center;
 }
-
-
 
 h1 {
   font-weight: 600;
@@ -189,6 +210,7 @@ h3 {
 p {
   font-weight: 400;
   color: #F0F0F0;
+  text-align: justify;
 }
 
 footer {

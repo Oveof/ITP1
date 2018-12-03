@@ -21,11 +21,12 @@
       </nav>
     </header>
     <div id="options">
+      <!--Player choice-->
       <form>
         <select id="gamemode">
           <option selected disabled>Spelare</option>
-          <option value="p1">PvE</option>
-          <option value="p2">PvP</option>
+          <option value="p1">1 spelar</option>
+          <option value="p2">2 spelarar</option>
         </select>
       </form>
     </div>
@@ -42,6 +43,7 @@
       <p id="countdownNumber"></p>
       <img src="" alt="" id="countdownImage">
     </div>
+    <!--score1 is name of player,. score1-display is count of wins-->
     <div id="score1">
       <p id="user1" data-info="Spiller 1">Spiller 1</p>
       <p id="score1-display"></p>
@@ -50,8 +52,10 @@
       <p id="user2" data-info="Spiller 2">Spiller 2</p>
       <p id="score2-display"></p>
     </div>
+    <!--Victory message-->
     <div id="win">
     </div>
+    <!--Tutorial-->
     <div id="key1">P1: Stein: A Saks: S Papir: D</div>
     <div id="key2">P2: Stein: &larr; Saks: &darr; Papir: &rarr;</div>
     <footer>Laget av Ove Oftedal</footer>
@@ -100,13 +104,6 @@
   user1.onclick = setName;
   user2.onclick = setName;
 
-  //CPU
-  function cpu() {
-    var rand = Math.floor(Math.random() * (4 - 1)) + 1;
-    return rand == 1 ? "rock" :
-      rand == 2 ? "scissors" :
-      "paper"
-  }
   //change button to enabled when choosing a gamemode
   gamemode.onchange = function() {
     if (gamemode.value == "p1" || gamemode.value == "p2") {
@@ -114,6 +111,13 @@
     } else {
       btnStart.disabled = true;
     }
+  }
+  //CPU
+  function cpu() {
+    var rand = Math.floor(Math.random() * (4 - 1)) + 1;
+    return rand == 1 ? "rock" :
+    rand == 2 ? "scissors" :
+    "paper"
   }
   //function for changing images depending on how many seconds are left
   function countDown() {

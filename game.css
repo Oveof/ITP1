@@ -40,30 +40,26 @@ nav {
   grid-area: nav;
 }
 
-#key1 {
-  grid-area: key1;
-}
 
-#key2 {
-  grid-area: key2;
-}
-
-#key1, #key2 {
+#options {
+  grid-area: options;
   text-align: center;
-  font-size: 1.2em;
+}
+#start-button {
+  grid-area: start;
+  display: flex;
+  justify-content: center;
+  margin: 0.5vh
 }
 
-#win {
-  grid-area: win;
+#countdown {
+  grid-area: countdown;
   text-align: center;
-  font-size: 3em;
-  margin-top: 1vh;
 }
-
-#user1, #user2 {
-  cursor: pointer;
+#countdownImage {
+  max-width: 5vw;
+  height: auto;
 }
-
 #imgp1 {
   grid-area: imgp1;
 }
@@ -82,22 +78,12 @@ nav {
   height: auto;
 }
 
-#start-button {
-  grid-area: start;
-  display: flex;
-  justify-content: center;
-  margin: 0.5vh
+
+#user1, #user2 {
+  cursor: pointer;
 }
 
-#options {
-  grid-area: options;
-  text-align: center;
-}
 
-#countdown {
-  grid-area: countdown;
-  text-align: center;
-}
 
 #score1 {
   grid-area: score1;
@@ -109,9 +95,6 @@ nav {
   text-align: center;
 }
 
-footer {
-  grid-area: footer;
-}
 
 nav {
   margin: 0;
@@ -139,6 +122,7 @@ li a {
   opacity: 0.6;
   display: inline;
   font-size: 1.3em;
+    margin: 3vh;
 }
 
 li a:hover {
@@ -175,10 +159,6 @@ p {
   text-align: center;
 }
 
-#countdownImage {
-  max-width: 5vw;
-  height: auto;
-}
 
 #start {
   border-radius: 50%;
@@ -225,6 +205,13 @@ p {
   }
 }
 
+#win {
+  grid-area: win;
+  text-align: center;
+  font-size: 3em;
+  margin-top: 1vh;
+}
+
 .winning {
   animation-name: winning;
   animation-duration: 2s;
@@ -252,4 +239,19 @@ p {
   100% {
     transform: translateY(0vh);
   }
+}
+#key1 {
+  grid-area: key1;
+}
+
+#key2 {
+  grid-area: key2;
+}
+
+#key1, #key2 {
+  text-align: center;
+  font-size: 1.2em;
+}
+footer {
+  grid-area: footer;
 }
